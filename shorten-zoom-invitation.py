@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import re
+import pyperclip
 
 
 def shorten_zoom_invitation(invitation: str) -> str:
@@ -37,3 +38,7 @@ def shorten_zoom_invitation(invitation: str) -> str:
                      passcode=passcode_string)
 
     return shortened_invitation
+
+
+zoom_invitation = pyperclip.paste()
+pyperclip.copy(shorten_zoom_invitation(zoom_invitation))
