@@ -23,7 +23,8 @@ signature.
 '''
 message.set_content(body)
 
-print(message)  # print the message
+# View the email being sent
+print(message)
 
 mail_server = smtplib.SMTP_SSL('smtp.gmail.com')  # smtp server address
 
