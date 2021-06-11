@@ -31,7 +31,7 @@ def get_text_from_pdf(local_filename: str, date: str) -> str:
     """
     try:
         with pdfplumber.open(local_filename) as pdf:
-            page = pdf.pages[2]
+            page = pdf.pages[2]  # Grand total is on the 3rd page
             text = page.extract_text()
     except pdfminer.pdfparser.PDFSyntaxError:
         # PDF file for the day does not exist, so remove it and exit().
