@@ -19,3 +19,7 @@ Passcode: *Passcode*
 ## get-first-youtube-video.py
 Input a string.  
 In Safari, it searches for the string on YouTube and plays the first video from the top.
+
+## bursa-yesterday-total.py
+Get Bursa Malaysia's grand total market transaction volume and value for yesterday.
+https://www.bursamalaysia.com/market_information/market_statistic/securities
