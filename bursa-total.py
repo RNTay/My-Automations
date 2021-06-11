@@ -24,7 +24,7 @@ def create_pdf_and_get_text(local_filename, date):
         print('\n' + '=' * 50 + '\n')
         print('Error: File does not exist for the date {}.'.format(date))
         print('\n' + '=' * 50 + '\n')
-        os.remove(securities)
+        os.remove(local_filename)
         exit()
     return text
 
