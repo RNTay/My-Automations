@@ -9,7 +9,7 @@ After copying a zoom meeting invitation, run this to shorten the invitation in t
 Format of shortened zoom invitation: 
 
 *Topic*  
-*Date*
+*Date and time*
 
 *Zoom link*
 
