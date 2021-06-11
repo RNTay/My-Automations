@@ -1,6 +1,6 @@
 # My-Automations
 
-## bursa-yesterday-market-total.py
+## bursa-yesterday-total.py
 Get Bursa Malaysia's grand total market transaction volume and value for yesterday.  
 https://www.bursamalaysia.com/market_information/market_statistic/securities
 
