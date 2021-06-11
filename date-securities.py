@@ -34,8 +34,13 @@ for row in text.splitlines():
     if row.startswith('Grand Total : Market Transaction'):
         numbers = row.split()[5:]
         print()
+        print('='*50)
+        print()
         print('Grand Total: Market Transaction')
         print("Volume ('000 units):", numbers[0])
         print("Value (RM '000):", numbers[-1])
+        print()
+        print('='*50)
+        print()
 
 os.remove(securities)
