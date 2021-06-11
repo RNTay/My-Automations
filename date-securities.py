@@ -16,6 +16,7 @@ def download_file(url):
 
 
 bursa_site = 'https://www.bursamalaysia.com/misc/missftp/securities/securities_equities_'
+print()
 day = input('Date (YYYY-MM-DD): ')
 securities_url = bursa_site + day + '.pdf'
 
