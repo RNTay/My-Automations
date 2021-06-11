@@ -34,6 +34,7 @@ def get_text_from_pdf(local_filename: str, date: str) -> str:
             page = pdf.pages[2]
             text = page.extract_text()
     except pdfminer.pdfparser.PDFSyntaxError:
+        # PDF file for the day does not exist, so remove it and exit().
         print('\n' + '=' * 50 + '\n')
         print('Error: File does not exist for yesterday, {}.'.format(date))
         print('\n' + '=' * 50 + '\n')
