@@ -25,11 +25,15 @@ def shorten_zoom_invitation(invitation: str) -> str:
     passcode_pattern = r'(Passcode: [\w\d ]+)'
     passcode_string = re.findall(passcode_pattern, invitation)[0]
 
-    shortened_invitation = '{topic}\n{time}\n\n{link}\n\n{meeting_id}\n{passcode}'.format(topic=topic_string,
-                                                                                          time=fixed_time_string,
-                                                                                          link=link_string,
-                                                                                          meeting_id=meeting_id_string,
-                                                                                          passcode=passcode_string)
+    shortened_invitation = '{topic}\n' \
+                           '{time}\n\n' \
+                           '{link}\n\n' \
+                           '{meeting_id}\n' \
+                           '{passcode}'.format(topic=topic_string,
+                                               time=fixed_time_string,
+                                               link=link_string,
+                                               meeting_id=meeting_id_string,
+                                               passcode=passcode_string)
 
     return shortened_invitation
 
