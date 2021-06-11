@@ -4,9 +4,10 @@ import requests
 import pdfplumber
 import os
 import datetime as dt
+import pdfminer.pdfparser
 
 
-def download_file(url):
+def download_file(url: str) -> str:
     local_filename = url.split('/')[-1]
 
     with requests.get(url) as r:
@@ -16,28 +17,29 @@ def download_file(url):
     return local_filename
 
 
-def create_pdf_and_get_text(local_filename, date):
+def create_pdf_and_get_text(local_filename: str, date: str) -> str:
     try:
         with pdfplumber.open(local_filename) as pdf:
             page = pdf.pages[2]
             text = page.extract_text()
-    except:
+    except pdfminer.pdfparser.PDFSyntaxError:
         print('\n' + '=' * 50 + '\n')
-        print('Error: File does not exist for the date {}.'.format(date))
+        print('Error: File does not exist for yesterday, {}.'.format(date))
         print('\n' + '=' * 50 + '\n')
         os.remove(local_filename)
         exit()
+
     return text
 
 
-def output_grand_total(data):
+def output_grand_total(data: str) -> tuple[str, str]:
     for row in data.splitlines():
         if row.startswith('Grand Total : Market Transaction'):
             numbers = row.split()[5:]
             return numbers[0], numbers[-1]
 
 
-def pretty_print(volume, value, date):
+def pretty_print(volume: str, value: str, date: str):
     print('\n' + '=' * 50 + '\n')
     print('Grand Total: Market Transaction\n')
     print('Date: ', date, '\n')
