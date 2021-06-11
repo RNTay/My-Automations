@@ -9,7 +9,7 @@ import pdfminer.pdfparser
 
 def download_file(url: str) -> str:
     """
-    Downloads the PDF file from the URL give.
+    Downloads the PDF file from the URL given.
     :param url: URL to the PDF file
     :return: name of the file downloaded
     """
@@ -24,7 +24,7 @@ def download_file(url: str) -> str:
 
 def get_text_from_pdf(local_filename: str, date: str) -> str:
     """
-    Extracts the text from the page of the PDF which contains the grand total.
+    Extracts the text from the page of the PDF which contains the grand total numbers.
     :param local_filename: name of the PDF file
     :param date: the date in the name of the file
     :return: the extracted text from the file
