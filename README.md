@@ -2,11 +2,11 @@
 
 ## send-email.py
 Sends an email via the SMTP server.  
-Currently only works for gmail.
+Currently only works for Gmail.
 
 ## shorten-zoom-invitation.py
-After copying a zoom meeting invitation, run this to shorten the invitation in the clipboard.  
-Format of shortened zoom invitation: 
+After copying a Zoom meeting invitation, run this to shorten the invitation in the clipboard.  
+Format of shortened Zoom invitation: 
 
 *Topic*  
 *Date and time*
@@ -19,6 +19,7 @@ Passcode: *Passcode*
 ## get-first-youtube-video.py
 Input a string.  
 In Safari, it searches for the string on YouTube and plays the first video from the top.
+https://www.youtube.com
 
 ## bursa-yesterday-total.py
 Get Bursa Malaysia's grand total market transaction volume and value for yesterday.
