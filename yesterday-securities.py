@@ -22,13 +22,19 @@ securities_url = bursa_site + yesterday + '.pdf'
 
 securities = download_file(securities_url)
 
-with pdfplumber.open(securities) as pdf:
-    page = pdf.pages[2]
-    text = page.extract_text()
+try:
+    with pdfplumber.open(securities) as pdf:
+        page = pdf.pages[2]
+        text = page.extract_text()
+except:
+    print('Error: File does not exist for yesterday, {}.'.format(yesterday))
+    os.remove(securities)
+    exit()
 
 for row in text.splitlines():
     if row.startswith('Grand Total : Market Transaction'):
         numbers = row.split()[5:]
+        print('Grand Total: Market Transaction')
         print("Volume ('000 units):", numbers[0])
         print("Value (RM '000):", numbers[-1])
 
