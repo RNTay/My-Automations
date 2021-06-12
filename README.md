@@ -6,15 +6,14 @@ https://www.bursamalaysia.com/market_information/market_statistic/securities
 
 ## get-first-youtube-video.py
 Input a string.  
-In Safari, it searches for the string on YouTube and plays the first video from the top.  
-https://www.youtube.com
+In Safari, it searches for the string on [YouTube](https://www.youtube.com) and plays the first video from the top.  
 
 ## send-email.py
 Sends an email via the SMTP server.  
 Currently only works for Gmail.
 
 ## shorten-zoom-invitation.py
-After copying a Zoom meeting invitation, run this to shorten the invitation in the clipboard.  
+After copying a [Zoom](https://zoom.us) meeting invitation, run this to shorten the invitation in the clipboard.  
 Format of shortened Zoom invitation: 
 
 *Topic*  
