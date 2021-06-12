@@ -71,7 +71,7 @@ def pretty_print(volume: str, value: str, date: str):
     print("Volume ('000 units):", volume)
     print("Value (RM '000):", value + '\n')
     value_number = int(value.replace(',', '')) * 1000
-    pyperclip.copy(value_number)
+    pyperclip.copy(str(value_number))
     print('(Copied grand total value, in RM, to clipboard)')
     print('=' * 50 + '\n')
 
