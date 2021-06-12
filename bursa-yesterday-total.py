@@ -23,6 +23,21 @@ def download_file(url: str) -> str:
     return local_filename
 
 
+def pdf_error(local_filename: str, date: str):
+    """
+    An error with the PDF has happened.
+    Output the error message, delete the PDF file, and exit the program.
+    :param local_filename: name of the PDF file
+    :param date: date in the name of the file
+    :return:
+    """
+    print('\n' + '=' * 50 + '\n')
+    print('Error: File does not exist for previous day, {}.'.format(date))
+    print('\n' + '=' * 50 + '\n')
+    os.remove(local_filename)
+    exit()
+
+
 def get_text_from_pdf(local_filename: str, date: str) -> str:
     """
     Extracts the text from the page of the PDF which contains the grand total numbers.
@@ -32,16 +47,15 @@ def get_text_from_pdf(local_filename: str, date: str) -> str:
     """
     try:
         with pdfplumber.open(local_filename) as pdf:
-            page = pdf.pages[2]  # Grand total is on the 3rd page
-            text = page.extract_text()
+            try:
+                page = pdf.pages[2]  # Grand total is on the 3rd page
+                text = page.extract_text()
+            except IndexError:
+                # PDF file for the day does not exist, so remove it and exit().
+                pdf_error(local_filename, date)
     except pdfminer.pdfparser.PDFSyntaxError:
         # PDF file for the day does not exist, so remove it and exit().
-        print('\n' + '=' * 50 + '\n')
-        print('Error: File does not exist for yesterday, {}.'.format(date))
-        print('\n' + '=' * 50 + '\n')
-        os.remove(local_filename)
-        exit()
-
+        pdf_error(local_filename, date)
     return text
 
 
@@ -78,7 +92,14 @@ def pretty_print(volume: str, value: str, date: str):
 
 if __name__ == '__main__':
     bursa_site = 'https://www.bursamalaysia.com/misc/missftp/securities/securities_equities_'
-    yesterday = str(dt.datetime.now() - dt.timedelta(days=1))[:10]
+    today = dt.datetime.now()
+    day_of_week = today.isoweekday()
+    if day_of_week == 1:  # today is Monday; get Friday's numbers
+        yesterday = str(today - dt.timedelta(days=3))[:10]
+    elif day_of_week == 7:  # today is Sunday; get Friday's numbers
+        yesterday = str(today - dt.timedelta(days=2))[:10]
+    else:
+        yesterday = str(today - dt.timedelta(days=1))[:10]
     securities_url = bursa_site + yesterday + '.pdf'
 
     securities = download_file(securities_url)
