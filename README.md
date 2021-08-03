@@ -4,10 +4,6 @@
 Get Bursa Malaysia's grand total market transaction volume and value for yesterday.  
 https://www.bursamalaysia.com/market_information/market_statistic/securities
 
-## send-email.py
-Sends an email via the SMTP server.  
-Currently only works for Gmail.
-
 ## shorten-zoom-invitation.py
 After copying a [Zoom](https://zoom.us) meeting invitation, run this to shorten the invitation in the clipboard.  
 Format of shortened Zoom invitation: 
