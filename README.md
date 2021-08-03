@@ -4,10 +4,6 @@
 Get Bursa Malaysia's grand total market transaction volume and value for yesterday.  
 https://www.bursamalaysia.com/market_information/market_statistic/securities
 
-## get-first-youtube-video.py
-Input a string.  
-In Safari, it searches for the string on [YouTube](https://www.youtube.com) and plays the first video from the top.  
-
 ## send-email.py
 Sends an email via the SMTP server.  
 Currently only works for Gmail.
