@@ -6,7 +6,7 @@ https://www.bursamalaysia.com/market_information/market_statistic/securities
 
 ## shorten-zoom-invitation.py
 After copying a [Zoom](https://zoom.us) meeting invitation, run this to shorten the invitation in the clipboard.  
-Format of shortened Zoom invitation: 
+Format of the shortened Zoom invitation: 
 
 *Topic*  
 *Date and time*
