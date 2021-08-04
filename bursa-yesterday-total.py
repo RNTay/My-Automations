@@ -90,7 +90,7 @@ def pretty_print(volume: str, value: str, date: str):
     print('=' * 50 + '\n')
 
 
-if __name__ == '__main__':
+def main():
     bursa_site = 'https://www.bursamalaysia.com/misc/missftp/securities/securities_equities_'
     today = dt.datetime.now()
     day_of_week = today.isoweekday()
@@ -104,9 +104,13 @@ if __name__ == '__main__':
 
     securities = download_file(securities_url)
     page_with_grand_total_text = get_text_from_pdf(securities, yesterday)
-    Vol, Val = relevant_grand_total(page_with_grand_total_text)
-    pretty_print(Vol, Val, yesterday)
+    volume, value = relevant_grand_total(page_with_grand_total_text)
+    pretty_print(volume, value, yesterday)
 
     os.remove(securities)
+
+
+if __name__ == '__main__':
+    main()
 
 
