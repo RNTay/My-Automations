@@ -38,8 +38,12 @@ def shorten_zoom_invitation(invitation: str) -> str:
     return shortened_invitation
 
 
-if __name__ == '__main__':
+def main():
     zoom_invitation = pyperclip.paste()
     pyperclip.copy(shorten_zoom_invitation(zoom_invitation))
+
+
+if __name__ == '__main__':
+    main()
 
 
